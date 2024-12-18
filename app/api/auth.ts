@@ -42,7 +42,9 @@ export function auth(req: NextRequest, modelProvider: ModelProvider) {
   console.log("[1] ", serverConfig.needCode);
   console.log("[2] ", serverConfig.codes);
   console.log("[3] ", hashedCode);
-  console.log("[4] ", apiKey);
+  console.log("[4] ", serverConfig.codes.has(hashedCode));
+  console.log("[5] ", apiKey);
+  console.log("[6] ", !apiKey);
   
   if (serverConfig.needCode && !serverConfig.codes.has(hashedCode) && !apiKey) {
     return {
